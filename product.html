@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="fkheaderlogo_exploreplus-44005d.svg" alt="">
+        </div>
+        <div class="searchber">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" placeholder="Search for Products, Brands and More">
+        </div>
+        <div class="login hiconcss">
+            <i class="fa-regular fa-circle-user"></i>
+            <span>Login</span>
+        </div>
+        <div class="Cart hiconcss">
+            <i class="fa-solid fa-cart-plus"></i>
+            <span>Cart</span>
+        </div>
+        <div class="hiconcss">
+            <i class="fa-solid fa-heart"></i>
+            <a href="wishlist.html"><span>Wishlist</span></a>
+        </div>
+        <div class="menudot">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+    </header>
+
+    <section class="product-main-container">
+        <button class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back</button>
+        <div class="product-page">
+            <div class="product-image">
+                <img id="product-img" src="" alt="">
+            </div>
+            <div class="product-details">
+                <h2 id="product-name"></h2>
+                <p id="product-desc">This is a high quality product with best features. Buy it now and enjoy premium experience.</p>
+                <h3 id="product-price"></h3>
+
+                <div class="product-buttons">
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                    <button class="buy-now"><i class="fa-solid fa-bolt"></i> Buy Now</button>
+                    <button class="wishlist-btn"><i class="fa-regular fa-heart" id="wishlist-heart"></i> Wishlist</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="other-products-container">
+            <h3>Other Products</h3>
+            <div class="other-products" id="other-products">
+              
+            </div>
+        </div>
+    </section>
+
+    <script src="product.js"></script>
+</body>
+</html>
+

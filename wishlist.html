@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wishlist</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body>
+
+<header>
+  <h1 onclick="goHome()">Wishlist</h1>
+</header>
+<button class="back-home" onclick="goHome()">← Back to Home</button>
+
+<div class="wishlist-container" id="wishlistContainer"></div>
+
+<script>
+function goHome(){ window.location.href="index.html"; }
+
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+const container = document.getElementById("wishlistContainer");
+container.innerHTML = "";
+
+if(wishlist.length===0){
+  container.innerHTML="<p class='empty-wishlist'>Your wishlist is empty!</p>";
+}else{
+  wishlist.forEach(item=>{
+    const card = document.createElement("div");
+    card.className="wishlist-card";
+    card.innerHTML = `
+      <img src="${item.img}" alt="${item.name}">
+      <h3>${item.name}</h3>
+      <p class="wishlist-price">${item.price}</p>
+      <div class="wishlist-buttons">
+        <button class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+        <button class="buy-now-btn"><i class="fa-solid fa-bolt"></i> Buy Now</button>
+        <button class="remove-btn"><i class="fa-solid fa-trash"></i> Remove</button>
+      </div>
+    `;
+    container.appendChild(card);
+
+    card.querySelector(".add-cart-btn").addEventListener("click", ()=> alert(`${item.name} added to cart!`));
+    card.querySelector(".buy-now-btn").addEventListener("click", ()=> alert(`Proceed to buy ${item.name}`));
+    card.querySelector(".remove-btn").addEventListener("click", ()=>{
+      if(confirm(`Remove ${item.name} from wishlist?`)){
+        wishlist = wishlist.filter(p=>p.id!==item.id);
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+        card.remove();
+      }
+    });
+  });
+}
+</script>
+</body>
+</html>
+
